@@ -13,6 +13,11 @@ const Shoppingcart = () => {
     let localStorageUsername=localStorage.getItem("localStorageUsername");
     let localStorageLoggedState=localStorage.getItem("localStorageLoggedState");
     let sum_total=0;
+    const currentDate = new Date();
+
+    // Format the date and time with a space between the date and time parts
+    const formattedDateTime = currentDate.toLocaleString();
+
 
     useEffect(() => {
         if(localStorageLoggedState==0){
@@ -39,6 +44,7 @@ const Shoppingcart = () => {
             name:localStorageUsername,
             order:localStorageMenuCart,
             total:sum_total,
+            time:formattedDateTime,
         }
         ).then((response) =>{
             if(response.data == 1){

@@ -9,10 +9,12 @@ import Headernavbaradmin from './Headnavbaradmin'
 
 const Dashboardadmin = () => {
     let localStorageUsername=localStorage.getItem("localStorageUsername");
+    let localStorageLoggedState=localStorage.getItem("localStorageLoggedState");
     const [productsales, setProductsales]=useState([]);
 
     useEffect(() => {
         //alert(localStorageUsername);
+        if(localStorageLoggedState!=="2")window.location.href = "/";
         Axios.get('http://localhost:8080/profileadmin',
         ).then((response) =>{
             //alert(JSON.stringify(response.data));

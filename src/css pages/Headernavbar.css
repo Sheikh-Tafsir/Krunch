@@ -79,7 +79,7 @@
         display:flex;
         flex-direction: column;
         background-color: white;
-        transform: translate(-7vw,10vh);
+        transform: translate(-6.3vw,10vh);
         transition: linear 0.3s;  
         visibility: hidden;
         cursor:pointer;
@@ -87,7 +87,7 @@
         
     }
     .navbarLoginActiveButs:hover .navbarLoginButs{
-        transform: translate(-7vw,2vh);
+        transform: translate(-6.3vw,1vh);
         visibility: visible;
     }
     .navbarIconsPers{

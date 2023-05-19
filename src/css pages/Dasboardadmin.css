@@ -1,5 +1,5 @@
 .dashboardadmin{
-    height:91vh;
+    height:121vh;
     background-color: rgb(238,238,238);
     margin-top:-5vh;
     padding-top: 2vh;
@@ -16,11 +16,14 @@
     height:20vh;
     width:22vw;
     margin-bottom:4vh;
+    border-radius: 7px;
+    /* border:1px solid black ; */
     transition: linear 0.2s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 .productsale:hover{
     transform:translateY(1vh);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 .productsale h2{
     margin-left:1vw;

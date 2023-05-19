@@ -11,6 +11,7 @@ const Dash = () => {
     const clientId = '1000835904597-ut38ah9s6238riqo9iv189fpcje1fc37.apps.googleusercontent.com';
     const [ profile, setProfile ] = useState(null);
     let localStorageUsername=localStorage.getItem("localStorageUsername");
+    let localStorageLoggedState=localStorage.getItem("localStorageLoggedState");
     const [myorders, setMyorders]=useState([10,20,30,20]);
     const [totalcount,setTotalcount]=useState(0);
     const [totalprice,setTotalprice]=useState(0);
@@ -40,6 +41,7 @@ const Dash = () => {
 
     useEffect(() => {
         //alert(localStorageUsername);
+        if(localStorageLoggedState!=="1")window.location.href = "/";
         Axios.post('http://localhost:8080/profile',
         {
             name:localStorageUsername

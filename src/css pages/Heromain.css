@@ -32,7 +32,7 @@
         justify-content: space-evenly;
         background-color: rgba(255,255,255,0.5);
         backdrop-filter: blur(10px);
-        border-radius: 0.5vh;
+        border-radius: 2.5vh;
         transform: translateY(-15vh);
     }
     .heromainSlideButImage{
@@ -187,12 +187,41 @@
 
 @media screen and (max-width: 991px) {
     .heromainBackground{
-        background-image: url("../images/picante-food-website-template.jpg");
+        /* background-image: url("../images/picante-food-website-template.jpg");
+        background-repeat: no-repeat;*/
         background-size: 100vw 100vh;
         height:100vh;
         width:100%;
-        background-repeat: no-repeat;
         overflow: hidden;
+    }
+
+    .heromainslider{
+        overflow-x: hidden;
+    }
+    .heromainslides{
+        width:300vw;
+        display:flex;   
+    }
+    .heromainSlideImage{
+        width:100vw;
+        height:91vh;
+    }
+    .heromainSlideBut{
+        width:80vw;
+        height:10vh;
+        margin:auto;
+        display:flex;
+        justify-content: space-evenly;
+        background-color: rgba(255,255,255,0.5);
+        backdrop-filter: blur(10px);
+        border-radius: 1.5vh;
+        transform: translateY(-15vh);
+    }
+    .heromainSlideButImage{
+        width:30%;
+        height:80%;
+        border:1px solid grey;
+        margin-top: 1vh;
     }
     .heromanAbout{
         text-align: center;

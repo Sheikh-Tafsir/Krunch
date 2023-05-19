@@ -24,6 +24,10 @@ import Streetfood from './pages/Streetfood';
 import Specialfood from './pages/Specialfood';
 import Dashboardadmin from './pages/Dashboardadmin';
 import Headernavbaradmin from './pages/Headnavbaradmin';
+import Deliverylogin from './pages/Deliverylogin';
+import Deliverysignup from './pages/Deliverysignup';
+import Deliverycheckorders from './pages/Deliverycheckorders';
+import Deliveryheadernavbar from './pages/Deliveryheadernavbar';
 
 
 const App = () =>{
@@ -51,6 +55,10 @@ const App = () =>{
           <Route path="specials" element={<Specialfood/>}/>
           <Route path="shoppingcart" element={<Shoppingcart/>}/>
           <Route path="admincheckorders" element={<Admincheckorders/>}/>
+          <Route path="deliverylogin" element={<Deliverylogin/>}/>
+          <Route path="deliverysignup" element={<Deliverysignup/>}/>
+          <Route path="deliverycheckorders" element={<Deliverycheckorders/>}/>
+          <Route path="deliveryheadernavbar" element={<Deliveryheadernavbar/>}/>
           <Route path='*' element={<Notfound/>} />
         </Routes>
       </BrowserRouter>

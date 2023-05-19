@@ -77,6 +77,9 @@
     .logToReg:hover{
         color:#d10000;
     }
+    .logToDlog{
+        color:#b5b3b3;
+    }
 
 }
 @media screen and (max-width: 991px) {

@@ -27,43 +27,79 @@ const Signup = () => {
         };
         gapi.load('client:auth2', initClient);
 
-        if(localStorageLoggedState==1)window.location.href = "/";
+        if(localStorageLoggedState===1)window.location.href = "/";
+        else if(localStorageLoggedState===2)window.location.href = "/dashboardadmin";
+        else if(localStorageLoggedState===3)window.location.href = "/deliverycheckorders";
     });
 
         //signup user using credentials and save to server
     const signupUser = () => {
         setRegStatus("please wait...");
-        Axios.post('http://localhost:8080/signup',
-        {
-            name:username,
-            email:useremail,
-            password:password
+        if(!isValidEmail(useremail)){
+            setRegStatus("Please provide a valid email address");
         }
-        ).then((response) =>{
-            //alert(response.data["success"]);
-            if(response.data == 1){
-                setRegStatus("user data saved");
-                localStorage.setItem("localStorageUsername",username);
-                localStorage.setItem("localStorageLoggedState",1);
-                //window.open("/dashboard", "_top");
-                window.location.href = "/";
-                
+        else if(!isValidPassword(password)){
+            setRegStatus("Password should be atleast 5 characters");
+        }
+        else{
+            Axios.post('http://localhost:8080/signup',
+            {
+                name:username,
+                email:useremail,
+                password:password
             }
-            else if(response.data == 0){
-                setRegStatus("user already exists");
-            }
-            else{
-                setRegStatus(response.data);
-            }
-        }).catch(error => {
-            console.error(error);
-        });
-
-        document.querySelector(".signupform").reset();
+            ).then((response) =>{
+                //alert(response.data["success"]);
+                if(response.data){
+                    setRegStatus("user data saved");
+                    localStorage.setItem("localStorageUsername",username);
+                    localStorage.setItem("localStorageLoggedState",1);
+                    //window.open("/dashboard", "_top");
+                    window.location.href = "/";
+                    
+                }
+                // else if(response.data == "0"){
+                //     setRegStatus("user already exists");
+                // }
+                else{
+                    setRegStatus(response.data);
+                }
+            }).catch(error => {
+                if (error.response && error.response.status === 400) {
+                    setRegStatus("user already exists");
+                    // Perform appropriate action, such as redirecting to login page
+                } else {
+                    // Handle other errors
+                    console.log('Error:', error.message);
+                }
+            });
+            document.querySelector(".signupform").reset();
+        }
         //alert("succ");
     }; 
 
-    
+    const isValidEmail = (useremail) => {
+        // Regular expression pattern to validate email format
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(useremail);
+    };
+
+    const isValidPassword = (password)=> {
+        // Regular expressions to match at least 5 letters/numbers, at least 1 number, and at least 1 letter
+        const letterNumberRegex = /[a-zA-Z0-9]/g;
+        const numberRegex = /[0-9]/g;
+        const letterRegex = /[a-zA-Z]/g;
+        
+        // Count the number of letters/numbers, numbers, and letters in the password
+        const letterNumberCount = (password.match(letterNumberRegex) || []).length;
+        // const numberCount = (password.match(numberRegex) || []).length;
+        // const letterCount = (password.match(letterRegex) || []).length;
+        
+        // Check if the password meets the criteria
+        //return letterNumberCount >= 5 && numberCount >= 1 && letterCount >= 1;
+        return letterNumberCount>= 5;
+    };
+      
 
     const onSuccess = (res) => {
         setProfile(res.profileObj);

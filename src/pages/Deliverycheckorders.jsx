@@ -1,11 +1,9 @@
 import {React,useState,useEffect } from 'react';
 import Axios from 'axios';
-import {Link, NavLink} from "react-router-dom";
-import { Button } from 'react-bootstrap';
 import "../css pages/Checkorders.css"
-import Headernavbaradmin from './Headnavbaradmin';
+import Deliveryheadernavbar from './Deliveryheadernavbar';
 
-const Admincheckorders = () => {
+const Deliverycheckorders = () => {
     const [cartItems, setCartItems] = useState([]);
     let localStorageLoggedState=localStorage.getItem("localStorageLoggedState");
     let localStorageUsername=localStorage.getItem("localStorageUsername");
@@ -18,7 +16,7 @@ const Admincheckorders = () => {
             setCartItems(response.data);
         }, [localStorageUsername]);
     });
-    
+
     const updateorderstatus = (cartItem)=>{
         //alert(idd +" "+ cartItem.name);
         Axios.post('http://localhost:8080/updateorderstatus',
@@ -37,19 +35,18 @@ const Admincheckorders = () => {
 
   return (
     <div>
-        <Headernavbaradmin/>
+        <Deliveryheadernavbar/>
         <h1>All orders are here</h1>
         <table className="orders" id="orderHead">
-            <td className="orders_time">Time</td>
-            <td className="orders_name">Name</td>
+            <td className="orders_time">time</td>
+            <td className="orders_name">name</td>
             <td className="ordersnestedbar">
                 <div className="ordersnested">
-                    <td className="orders_item_name">Item name</td>
-                    <td className="orders_pieces">Quantity</td>
+                    <td className="orders_item_name">item name</td>
+                    <td className="orders_pieces">pieces</td>
                 </div>
             </td>
-            <td className="orders_total_price">Total price</td>
-            
+            <td className="orders_total_price">total price</td>
             <td className="orders_status">Status</td>
             <br/>
         </table>
@@ -67,6 +64,7 @@ const Admincheckorders = () => {
                     ))}
                 </td>
                 <td className="orders_total_price">{cartItem.total}</td>
+                
                 <td className="orders_status" onClick={()=>updateorderstatus(cartItem)}>{cartItem.status}</td>
             </table>
         ))} 
@@ -74,4 +72,4 @@ const Admincheckorders = () => {
   )
 }
 
-export default Admincheckorders
+export default Deliverycheckorders

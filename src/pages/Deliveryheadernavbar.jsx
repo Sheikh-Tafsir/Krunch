@@ -14,7 +14,7 @@ import { gapi } from 'gapi-script';
 
 import Shoppingcart from './Shoppingcart';
 
-const Headernavbaradmin = () => {
+const Deliveryheadernavbar = () => {
   
   let localStorageUsername=localStorage.getItem("localStorageUsername");
   let localStorageLoggedState=localStorage.getItem("localStorageLoggedState");
@@ -131,9 +131,9 @@ const Headernavbaradmin = () => {
         <div className="headnavbar" data-aos="fade-down">
           <div className="navbarMenu">
               <Link to="#" className="navbarMenuOpt">Home</Link>
-              <Link to="/deliverysignup" className="navbarMenuOpt">addDeliveryman</Link>
-              <Link to="/admincheckorders" className="navbarMenuOpt">Orders</Link>
-              <Link to="/dashboardadmin" className="navbarMenuOpt">Profile</Link>
+              <Link to="#" className="navbarMenuOpt">Products</Link>
+              <Link to="/deliverycheckorders" className="navbarMenuOpt">Orders</Link>
+              <Link to="#" className="navbarMenuOpt">Profile</Link>
           </div>
          
           <div className="navbarLogo">
@@ -178,4 +178,4 @@ const Headernavbaradmin = () => {
   )
 }
 
-export default Headernavbaradmin
+export default Deliveryheadernavbar
