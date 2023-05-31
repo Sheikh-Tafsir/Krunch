@@ -7,8 +7,6 @@ import {FaRegAddressBook} from "react-icons/fa"
 import Headernavbaradmin from './Headnavbaradmin';
 
 const Deliverysignup = () => {
-    const [ profile, setProfile ] = useState(null);
-    const clientId = '1000835904597-ut38ah9s6238riqo9iv189fpcje1fc37.apps.googleusercontent.com';
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [loginStatus, setLoginStatus] = useState("");
@@ -16,10 +14,12 @@ const Deliverysignup = () => {
     let localStorageLoggedState=localStorage.getItem("localStorageLoggedState");
   
     useEffect(() => {
-        if(localStorageLoggedState===3)window.location.href = "/deliverycheckorders";
-        else if(localStorageLoggedState===1)window.location.href = "/";
-        else if(localStorageLoggedState===0)window.location.href = "/";
-        //else if(localStorageLoggedState===2)window.location.href = "/dashboardadmin"; 
+        // if(localStorageLoggedState=="1")window.location.href = "/";
+        // else if(localStorageLoggedState=="3")window.location.href = "/deliverycheckorders";
+        // else if(localStorageLoggedState=="0")window.location.href = "/signup";
+        // else{
+        //     //
+        // }
     });
 
 

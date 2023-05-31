@@ -11,17 +11,17 @@ const Review = () => {
             <div className="reviewCard">
                 <img src="https://avatars.githubusercontent.com/u/83116065?s=400&u=7fffac9a04dba6c16d4707d2cfabc85cce0e2beb&v=4"></img>
                 <h3>Tafsir Rahman</h3>
-                <p> all aspects of the projects were followed steps by step and with good results.</p>
+                <p>Exceptional food, delightful ambiance, and impeccable service—a culinary experience to remember.</p>
             </div>
             <div className="reviewCard">
                 <img src="https://i.pinimg.com/originals/08/b8/0f/08b80f4e96b53bf8b4420b179a098519.jpg"></img>
                 <h3>Arafat Bin Amin</h3>
-                <p>all aspects of the projects were followed steps by step and with good results.</p>
+                <p>This restaurant's flavors dance on the palate, leaving a lasting impression of gastronomic delight.</p>
             </div>
             <div className="reviewCard">
                 <img src="https://avatars.githubusercontent.com/u/75539110?v=4"></img>
                 <h3>Mohsina Tabassum</h3>
-                <p>all aspects of the projects were followed steps by step and with good results.</p>
+                <p>Surprises with its mouthwatering dishes, eager to return for another unforgettable culinary adventure.</p>
             </div>
         </div>
     </div>

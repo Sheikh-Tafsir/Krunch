@@ -1,5 +1,5 @@
 import React from 'react'
-import {Routes, Route, Link, BrowserRouter, useNavigate} from "react-router-dom";
+import {Routes, Route, Link, BrowserRouter, Navigate, useNavigate} from "react-router-dom";
 import { Navbar } from 'react-bootstrap';
 
 import Homepage from "./pages/Homepage"
@@ -31,19 +31,56 @@ import Deliveryheadernavbar from './pages/Deliveryheadernavbar';
 
 
 const App = () =>{
+  let localStorageUsername=localStorage.getItem("localStorageUsername");
+  let localStorageLoggedState=localStorage.getItem("localStorageLoggedState");
+  
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Homepage/>} />
-          <Route path='login' element={<Login/>} />
-          <Route path='signup' element={<Signup/>} />
+          {/* <Route path='/' element={<Homepage/>} /> */}
+          <Route
+            path="/"
+            element={localStorageLoggedState === '2' ? <Navigate to="/dashboardadmin"/>: 
+            localStorageLoggedState === '3'? <Navigate to="/deliverycheckorders"/>:
+            <Homepage/>}
+          />
+          {/* <Route path='login' element={<Login/>} /> */}
+          <Route
+            path="login"
+            element={localStorageLoggedState === '1' ? <Navigate to="/"/> : 
+            localStorageLoggedState === '2'? <Navigate to="/dashboardadmin"/> :
+            localStorageLoggedState === '3'? <Navigate to="/deliverycheckorders"/>:
+            <Login/>}
+          />
+          {/* <Route path='signup' element={<Signup/>} /> */}
+          <Route
+            path="signup"
+            element={localStorageLoggedState === '1' ? <Navigate to="/"/> : 
+            localStorageLoggedState === '2'? <Navigate to="/deliverysignup"/> :
+            localStorageLoggedState === '3'? <Navigate to="/deliverycheckorders"/>:
+            <Signup/>}
+          />
           <Route path='service' element={<Service/>} />
           <Route path='headernavbar' element={<Headernavbar/>} />
           <Route path='headernavbaradmin' element={<Headernavbaradmin/>} />
           <Route path='forgetpass' element={<Forgetpass/>} />
-          <Route path='dashboard' element={<Dashboard/>} />
-          <Route path='dashboardadmin' element={<Dashboardadmin/>} />
+          {/* <Route path='dashboard' element={<Dashboard/>} /> */}
+          <Route
+            path="dashboard"
+            element={localStorageLoggedState === '1' ? <Dashboard /> : 
+            localStorageLoggedState === '2'? <Navigate to="/dashboardadmin"/> :
+            localStorageLoggedState === '3'? <Navigate to="/deliverycheckorders"/>:
+            <Navigate to="/"/>}
+          />
+          {/* <Route path='dashboardadmin' element={<Dashboardadmin/>} /> */}
+          <Route
+            path="dashboardadmin"
+            element={localStorageLoggedState === '1' ? <Navigate to="/dashboard"/> : 
+            localStorageLoggedState === '2'? <Dashboardadmin/> :
+            localStorageLoggedState === '3'? <Navigate to="/deliverycheckorders"/>:
+            <Navigate to="/"/>}
+          />
           <Route path="heromain" element={<Heromain/>}/>
           <Route path="contacts" element={<Contacts/>}/>
           <Route path="products" element={<Products/>}/>
@@ -54,10 +91,38 @@ const App = () =>{
           <Route path="drinks" element={<Drinks/>}/>
           <Route path="specials" element={<Specialfood/>}/>
           <Route path="shoppingcart" element={<Shoppingcart/>}/>
-          <Route path="admincheckorders" element={<Admincheckorders/>}/>
-          <Route path="deliverylogin" element={<Deliverylogin/>}/>
-          <Route path="deliverysignup" element={<Deliverysignup/>}/>
-          <Route path="deliverycheckorders" element={<Deliverycheckorders/>}/>
+          {/* <Route path="admincheckorders" element={<Admincheckorders/>}/> */}
+          <Route
+            path="admincheckorders"
+            element={localStorageLoggedState === '1' ? <Navigate to="/" /> : 
+            localStorageLoggedState === '2'? <Admincheckorders/> :
+            localStorageLoggedState === '3'? <Navigate to="/deliverycheckorders"/>:
+            <Navigate to="/"/>}
+          />
+          {/* <Route path="deliverylogin" element={<Deliverylogin/>}/> */}
+          <Route
+            path="deliverylogin"
+            element={localStorageLoggedState === '1' ? <Navigate to="/" /> : 
+            localStorageLoggedState === '2'? <Navigate to="/dashboardadmin"/> :
+            localStorageLoggedState === '3'? <Navigate to="/deliverycheckorders"/>:
+            <Deliverylogin/>}
+          />
+          {/* <Route path="deliverysignup" element={<Deliverysignup/>}/> */}
+          <Route
+            path="deliverysignup"
+            element={localStorageLoggedState === '1' ? <Navigate to="/" /> : 
+            localStorageLoggedState === '2'? <Deliverysignup/> :
+            localStorageLoggedState === '3'? <Navigate to="/deliverycheckorders"/>:
+            <Navigate to="/signup" />}
+          />
+          {/* <Route path="deliverycheckorders" element={<Deliverycheckorders/>}/> */}
+          <Route
+            path="deliverycheckorders"
+            element={localStorageLoggedState === '1' ? <Navigate to="/" /> : 
+            localStorageLoggedState === '2'? <Navigate to="/admincheckorders"/> :
+            localStorageLoggedState === '3'? <Deliverycheckorders/>:
+            <Navigate to="/"/>}
+          />
           <Route path="deliveryheadernavbar" element={<Deliveryheadernavbar/>}/>
           <Route path='*' element={<Notfound/>} />
         </Routes>

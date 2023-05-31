@@ -40,8 +40,16 @@ const Dash = () => {
     };
 
     useEffect(() => {
+        // alert(localStorageLoggedState);
         //alert(localStorageUsername);
-        if(localStorageLoggedState!=="1")window.location.href = "/";
+        
+        // if(localStorageLoggedState=="0")window.location.href = "/";
+        // else if(localStorageLoggedState=="2")window.location.href = "/dashboardadmin";
+        // else if(localStorageLoggedState=="3")window.location.href = "/deliverycheckorders";
+        // else{
+        //     //
+        // }
+
         Axios.post('http://localhost:8080/profile',
         {
             name:localStorageUsername

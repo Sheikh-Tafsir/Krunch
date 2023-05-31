@@ -20,6 +20,7 @@ const Shoppingcart = () => {
 
 
     useEffect(() => {
+        //alert(JSON.stringify(localStorageMenuCart));
         if(localStorageLoggedState==0){
   
         }

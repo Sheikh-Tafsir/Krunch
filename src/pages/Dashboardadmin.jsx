@@ -14,7 +14,12 @@ const Dashboardadmin = () => {
 
     useEffect(() => {
         //alert(localStorageUsername);
-        if(localStorageLoggedState!=="2")window.location.href = "/";
+        // if(localStorageLoggedState=="0")window.location.href = "/";
+        // else if(localStorageLoggedState=="1")window.location.href = "/dashboard";
+        // else if(localStorageLoggedState=="3")window.location.href = "/deliverycheckorders";
+        // else{
+        //     //
+        // }
         Axios.get('http://localhost:8080/profileadmin',
         ).then((response) =>{
             //alert(JSON.stringify(response.data));

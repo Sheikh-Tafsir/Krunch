@@ -12,6 +12,12 @@ const Admincheckorders = () => {
 
     useEffect(() => {
         //alert(localStorageUsername);
+        // if(localStorageLoggedState=="1")window.location.href = "/";
+        // else if(localStorageLoggedState=="3")window.location.href = "/deliverycheckorders";
+        // else if(localStorageLoggedState=="0")window.location.href = "/";
+        // else{
+        //     //
+        // }
         Axios.get('http://localhost:8080/admincheckorders',
         ).then((response) =>{
             //alert(JSON.stringify(response.data));
@@ -25,7 +31,7 @@ const Admincheckorders = () => {
         {
             id:cartItem.idorders,
             name:cartItem.name,
-            order:cartItem.order,
+            order:localStorageUsername,
             total:cartItem.total,
             time:cartItem.time,
         }

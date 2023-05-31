@@ -3,12 +3,12 @@ import { Button } from 'react-bootstrap';
 import {Link, NavLink} from "react-router-dom";
 import "../css pages/Headernavbar.css"
 import "../css pages/Shoppingcart.css"
-import {BsPerson, BsCart3} from "react-icons/bs"
+import {BsPerson, BsFillPersonFill, BsCart3, BsCartPlusFill} from "react-icons/bs"
 import {HiBars3} from "react-icons/hi2"
 import {FaRegAddressBook} from "react-icons/fa"
 import {IoLogInOutline, IoSearchOutline} from "react-icons/io5"
 import {SlLogout} from "react-icons/sl"
-import logo from "../images/FLogo.png"
+import logo from "../images/klogo1.png"
 import { useGoogleLogout, GoogleLogout } from "react-google-login";
 import { gapi } from 'gapi-script';
 
@@ -143,7 +143,7 @@ const Headernavbaradmin = () => {
           <div className="navbarIcon">
             <div><IoSearchOutline className ="navbarIcons"/></div>
             <div><BsCart3 className ="navbarIcons navbarIconsCart" onClick={shoppingCartSlideIn}></BsCart3></div>
-            <div className="navbarLoginActiveButs"><BsPerson className ="navbarIcons navbarIconsPers" onClick={loginMenuSlideIn}></BsPerson>
+            <div className="navbarLoginActiveButs">{(localStorageLoggedState==="0") ?<BsPerson className ="navbarIcons navbarIconsPers" onClick={loginMenuSlideIn}></BsPerson>: <BsFillPersonFill className ="navbarIcons navbarIconsPers" onClick={loginMenuSlideIn}></BsFillPersonFill>}
               <div className="navbarLoginButs">
                 {(localStorageLoggedState>=1)?
                     <>

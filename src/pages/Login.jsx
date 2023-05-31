@@ -6,6 +6,7 @@ import {Link, NavLink} from "react-router-dom";
 import { Button } from 'react-bootstrap';
 import "../css pages/Login.css"
 import {FaRegAddressBook} from "react-icons/fa"
+import { IoEllipseSharp } from 'react-icons/io5';
 
 const Login = () => {
     const [ profile, setProfile ] = useState(null);
@@ -26,9 +27,12 @@ const Login = () => {
         };
         gapi.load('client:auth2', initClient);
 
-        if(localStorageLoggedState===1)window.location.href = "/";
-        else if(localStorageLoggedState===2)window.location.href = "/dashboardadmin";
-        else if(localStorageLoggedState===3)window.location.href = "/deliverycheckorders";
+        // if(localStorageLoggedState=="1")window.location.href = "/";
+        // else if(localStorageLoggedState=="2")window.location.href = "/dashboardadmin";
+        // else if(localStorageLoggedState=="3")window.location.href = "/deliverycheckorders";
+        // else{
+        //     //
+        // }
     });
 
 

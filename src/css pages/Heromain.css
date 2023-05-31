@@ -21,7 +21,7 @@
         display:flex;   
     }
     .heromainSlideImage{
-        width:99vw;
+        width:99.25vw;
         height:91vh;
     }
     .heromainSlideBut{
@@ -32,7 +32,7 @@
         justify-content: space-evenly;
         background-color: rgba(255,255,255,0.5);
         backdrop-filter: blur(10px);
-        border-radius: 2.5vh;
+        border-radius: 0.7vh;
         transform: translateY(-15vh);
     }
     .heromainSlideButImage{

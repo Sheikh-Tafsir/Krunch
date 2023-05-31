@@ -27,9 +27,12 @@ const Signup = () => {
         };
         gapi.load('client:auth2', initClient);
 
-        if(localStorageLoggedState===1)window.location.href = "/";
-        else if(localStorageLoggedState===2)window.location.href = "/dashboardadmin";
-        else if(localStorageLoggedState===3)window.location.href = "/deliverycheckorders";
+        // if(localStorageLoggedState=="1")window.location.href = "/";
+        // else if(localStorageLoggedState=="2")window.location.href = "/deliverysignup";
+        // else if(localStorageLoggedState=="3")window.location.href = "/deliverycheckorders";
+        // else{
+        //     //
+        // }
     });
 
         //signup user using credentials and save to server
